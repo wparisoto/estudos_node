@@ -70,7 +70,8 @@ app.use("/", authRoutes);
 app.get("/", ToughController.showToughts);
 
 conn
-  .sync()
+  .sync({force: true}) //recria as tabelas a cada execucao
+  //.sync()
   .then(() => {
     app.listen(3000);
   })
